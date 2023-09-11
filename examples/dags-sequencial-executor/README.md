@@ -1,9 +1,22 @@
 # Running Airflow in Docker with `Sequencial` Executor
 
-Link ref: <https://github.com/maxcotec/Apache-Airflow/tree/main/airflow-minimal/docker-sequencial-sqlite>
+Link ref:
+
+- <https://github.com/maxcotec/Apache-Airflow/tree/main/airflow-minimal/docker-sequencial-mysql>
+- <https://github.com/maxcotec/Apache-Airflow/tree/main/airflow-minimal/docker-sequencial-sqlite>
+
+Run docker
+
+- Option 1
 
 ```bash
-docker compose up -d
+docker compose up -d -f docker-compose-seq-sqlite.yaml
+```
+
+- Option 2
+
+```bash
+docker compose up -d -f docker-compose-seq-mysql.yaml
 ```
 
 ![dag-sequencial-docker-up](../../images/dag-sequencial-docker-up.png)
