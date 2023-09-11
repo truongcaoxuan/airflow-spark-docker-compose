@@ -1,0 +1,20 @@
+/opt/spark/bin/spark-submit --packages org.mongodb.spark:mongo-spark-connector_2.12:3.0.1 /opt/spark-apps/mongodb_to_csv.py
+
+/opt/spark/bin/spark-submit --master spark://spark-master:7077 \
+--packages org.mongodb.spark:mongo-spark-connector_2.12:3.0.1 \
+--jars /opt/spark-apps/postgresql-42.2.22.jar \
+--driver-memory 1G \
+--executor-memory 1G \
+/opt/spark-apps/mongodb_to_csv.py
+
+/opt/spark/bin/spark-submit --master spark://spark-master:7077 \
+--packages org.mongodb.spark:mongo-spark-connector_2.12:3.0.1 \
+--driver-memory 1G \
+--executor-memory 1G \
+/opt/spark-apps/mongodb_to_csv.py
+
+spark-submit --master spark://spark-master:7077 \
+--packages org.mongodb.spark:mongo-spark-connector_2.12:3.0.1 \
+--driver-memory 1G \
+--executor-memory 1G \
+/opt/airflow/app/mongodb_to_csv.py

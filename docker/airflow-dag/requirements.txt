@@ -1,0 +1,10 @@
+lxml
+beautifulsoup4
+googledrivedownloader
+gdown
+requests
+apache-airflow-providers-apache-spark==4.1.4
+#apache-airflow-providers-apache-spark==2.1.3
+apache-airflow-providers-mongo==3.2.1
+#apache-airflow-providers-mongo==3.0.0
+#apache-airflow-providers-docker==3.7.4

@@ -1,0 +1,39 @@
+
+# Create DAG
+create user_processing.py in dags folder
+
+# Deploy Apache Airflow
+docker compose up -d
+
+# Create a connection
+Open Airflow GUI at localhost:8080
+Admin > Connections
+-- Add new Connections for postgres
+Connection id   : postgres
+Connection Type : Postgres
+Host            : postgres
+Login           : airflow
+Password        : airflow
+
+-- Add new Connections for user api
+Connection Id : user_api
+Connection Type: HTTP
+Host: randomuser.me/
+
+# Test task
+docker exec -it materials_airflow-scheduler_1 /bin/bash
+airflow -h
+airflow task test user_processing create_table 2023-09-02
+airflow task test user_processing process_user 2023-09-02
+
+# Check extract user file
+docker exec -it materials_airflow-worker_1 /bin/bash
+ls /tmp/
+
+# Check Stored user in postgres db
+docker exec -it materials_postgres_1 /bin/bash
+psql -Uairflow
+SELECT * FROM users;
+
+# Remove Apache Airflow
+docker compose down
